@@ -144,47 +144,79 @@ game.onUpdate(function () {
 })
 game.onUpdateInterval(1000, function () {
     enemy_plane = sprites.create(img`
-        . . . . . . . . . c c 8 . . . . 
-        . . . . . . 8 c c c f 8 c c . . 
-        . . . c c 8 8 f c a f f f c c . 
-        . . c c c f f f c a a f f c c c 
-        8 c c c f f f f c c a a c 8 c c 
-        c c c b f f f 8 a c c a a a c c 
-        c a a b b 8 a b c c c c c c c c 
-        a f c a a b b a c c c c c f f c 
-        a 8 f c a a c c a c a c f f f c 
-        c a 8 a a c c c c a a f f f 8 a 
-        . a c a a c f f a a b 8 f f c a 
-        . . c c b a f f f a b b c c 6 c 
-        . . . c b b a f f 6 6 a b 6 c . 
-        . . . c c b b b 6 6 a c c c c . 
-        . . . . c c a b b c c c . . . . 
-        . . . . . c c c c c c . . . . . 
+        ..............bbbbbbb...........
+        ...........bb66663333baa........
+        .........bb3367776333663aa......
+        ........b33333888333389633aa....
+        .......b3333333333333389633aa...
+        ......b34443333333333338633bae..
+        .....b3455433333333334443333ae..
+        ....b33322333dddd3333455233daee.
+        ...b3d333333dd3bbbb33322333dabe.
+        ..b3d333333d3bb33bb33333333da4e.
+        ..bd33333333b33aab3333333223a4ee
+        .b3d3663333b33aab33366332442b4ee
+        .bd3b983333a3aa3333387633ee3b4ee
+        .bd6983333baaa333333387633bb4bee
+        b3d6833333bba333333333863ba44ebe
+        bdd3333333bb3333333333333a44bebe
+        add666633333322333366333ba44bbbe
+        ad67776333332442336983d3a444b4e.
+        add888b333333ee3369833d3a44b44e.
+        add333333333333336833d3a444b4e..
+        a3dd3333344433333dddd3a444b44e..
+        ab33ddd325543333dd33aa444b44e...
+        .eabb3dd32233333baaa4444b44e....
+        .ebabb3d333d33baa444443b44e.....
+        ..ebaab3ddd3aaa4444433b44e......
+        ..eebbaab33a44444333b444e.......
+        ...eeebbaab444b333b4444e........
+        ....ebeeebbbbbbbb4444ee.........
+        .....eebbbb44444444ee...........
+        .......eeebbb444eee.............
+        ..........eeeeee................
+        ................................
         `, SpriteKind.Enemy)
     enemy_plane.setVelocity(enemy_speed, 0)
     enemy_plane.setPosition(160, randint(5, 155))
     enemy_plane.setFlag(SpriteFlag.AutoDestroy, true)
 })
 game.onUpdateInterval(1000, function () {
-    for (let index = 0; index < 3; index++) {
-        if (info.score() == 100) {
+    for (let index = 0; index < 10; index++) {
+        if (info.score() == 1000) {
             enemy_plane = sprites.create(img`
-                . . . . . . . . . c c 8 . . . . 
-                . . . . . . 8 c c c f 8 c c . . 
-                . . . c c 8 8 f c a f f f c c . 
-                . . c c c f f f c a a f f c c c 
-                8 c c c f f f f c c a a c 8 c c 
-                c c c b f f f 8 a c c a a a c c 
-                c a a b b 8 a b c c c c c c c c 
-                a f c a a b b a c c c c c f f c 
-                a 8 f c a a c c a c a c f f f c 
-                c a 8 a a c c c c a a f f f 8 a 
-                . a c a a c f f a a b 8 f f c a 
-                . . c c b a f f f a b b c c 6 c 
-                . . . c b b a f f 6 6 a b 6 c . 
-                . . . c c b b b 6 6 a c c c c . 
-                . . . . c c a b b c c c . . . . 
-                . . . . . c c c c c c . . . . . 
+                ...........ccccc66666...........
+                ........ccc4444444444666........
+                ......cc444444444bb4444466......
+                .....cb4444bb4444b5b444444b.....
+                ....eb4444b5b44444b44444444b....
+                ...ebb44444b4444444444b444446...
+                ..eb6bb444444444bb444b5b444446..
+                ..e6bb5b44444444b5b444b44bb44e..
+                .e66b4b4444444444b4444444b5b44e.
+                .e6bb444444444444444444444bb44e.
+                eb66b44444bb444444444444444444be
+                eb66bb444b5b44444444bb44444444be
+                fb666b444bb444444444b5b4444444bf
+                fcb666b44444444444444bb444444bcf
+                .fbb6666b44444444444444444444bf.
+                .efbb66666bb4444444444444444bfe.
+                .86fcbb66666bbb44444444444bcc688
+                8772effcbbbbbbbbbbbbbbbbcfc22778
+                87722222cccccccccccccccc22226678
+                f866622222222222222222222276686f
+                fef866677766667777776667777fffef
+                fbff877768f86777777666776fffffbf
+                fbeffeefffeff7766688effeeeefeb6f
+                f6bfffeffeeeeeeeeeeeeefeeeeebb6e
+                f66ddfffffeeeffeffeeeeeffeedb46e
+                .c66ddd4effffffeeeeeffff4ddb46e.
+                .fc6b4dddddddddddddddddddb444ee.
+                ..ff6bb444444444444444444444ee..
+                ....ffbbbb4444444444444444ee....
+                ......ffebbbbbb44444444eee......
+                .........fffffffcccccee.........
+                ................................
                 `, SpriteKind.Enemy)
             enemy_plane.setVelocity(enemy_speed, 0)
             enemy_plane.setPosition(160, randint(5, 155))
